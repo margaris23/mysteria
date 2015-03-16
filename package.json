@@ -1,0 +1,18 @@
+{
+  "name": "mysteria",
+  "description": "rest-api game engine",
+  "author": "Nikolaos Margaris <reverence23@gmail.com>",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/margaris23/mysteria"
+  },
+  "dependencies": {
+    "express": "^4.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node mysteria.js"
+  },
+  "engine": "node >= 0.10.0"
+}
