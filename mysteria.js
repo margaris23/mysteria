@@ -23,14 +23,14 @@ app.get('/', function (req, res) {
 
 app.get('/constants', function (req, res) {
     res.send({
-			MAX_PLAYERS: null
-		});
+        MAX_PLAYERS: null
+    });
 });
 
 app.get('/roll', function (req, res) {
     res.send({
-			roll: Game.DIE.roll(1,2)
-		});
+        roll: Game.DIE.getInstance().roll(1, 6)
+    });
 });
 
 
