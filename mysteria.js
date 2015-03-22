@@ -15,7 +15,14 @@ function normalizeUrl(url) {
     return url;
 }
 
-app.use(express.static(process.argv[3] || path.join(__dirname, 'public')));
+function sendDefault(res) {
+    res.send({
+			result: 'NO_RESULT'
+    });
+}
+
+app.use(express.static(process.argv[3] ||
+				path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
   res.sendStatus(404);
@@ -31,6 +38,26 @@ app.get('/roll', function (req, res) {
     res.send({
         roll: Game.DIE.getInstance().roll(1, 6)
     });
+});
+
+app.get('/case', function (req, res) {
+    sendDefault(res);
+});
+
+app.get('/suspect', function (req, res) {
+    sendDefault(res);
+});
+
+app.get('/wizard', function (req, res) {
+    sendDefault(res);
+});
+
+app.get('/spy', function (req, res) {
+    sendDefault(res);
+});
+
+app.get('/witness', function (req, res) {
+    sendDefault(res);
 });
 
 
