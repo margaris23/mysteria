@@ -31,18 +31,33 @@ exports.Place = Place;
 var Engine = (function () {
   'use strict';
 
-	var Case = {
-		title: '',
-		description: '',
-		witnesses: [],
-		solution: {},
-		dragon: null
+	var Case = function () {
+		var _title,
+			_description,
+			_witnesses = {},
+			_solution;
+
+		return {
+			getTitle: function () {
+				return _title;
+			},
+			getDescription: function () {
+				return _description;
+			},
+			getWitness: function (place) {
+				return null;
+			},
+			getSolution: function () {
+				return _solution;
+			}
+		};
 	};
 
 	var Witness = {
 		id: null,
 		number: -1,
-		place: null
+		place: null,
+		text: ''
 	};
 
 	var Detective = {

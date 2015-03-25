@@ -1,0 +1,33 @@
+MYSTERIA REST API:
+
+- create a game (POST: #players) -> reply with id
+
+- get available cases (GET: #gameid) -> reply with array of cases
+
+- choose case for a game (POST: #gameID, #caseID) -> reply 200
+
+- start a game (POST: #gameID) -> reply with players json object {1: pla, 2: pla .etc)
+
+- get current state (GET: #gameId) -> reply with state enum + available actions
+
+- take action (POST: #gameId) -> reply 200
+
+- get players info (GET: #gameId) -> reply with players' info
+
+
+FSM (From-Via-To):
+
+START-roll dice-PLAYER_TURN_MOVE
+
+PLAYER_TURN_MOVE-move-PLAYER_TURN_ASK
+PLAYER_TURN_MOVE-move-PLAYER_TURN_NEXT
+PLAYER_TURN_MOVE-move-PLAYER_TURN_OTHER ?
+
+PLAYER_TURN_ASK-ask-PLAYER_TURN_ANSWER
+
+PLAYER_TURN_ANSWER-end turn-PLAYER_TURN_NEXT
+PLAYER_TURN_ANSWER-move dragon-PLAYER_TURN_NEXT
+
+PLAYER_TURN_NEXT-roll-PLAYER_TURN_MOVE
+PLAYER_TURN_NEXT-guess correct-GAME_END
+PLAYER_TURN_NEXT-guess wrong-PLAYER_TURN_NEXT
