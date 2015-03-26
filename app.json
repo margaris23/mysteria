@@ -1,0 +1,6 @@
+{
+  "name": "Mysteria - Game Engine",
+  "description": "A Game engine with Rest API",
+  "repository": "https://github.com/margaris23/mysteria",
+  "keywords": ["node", "express", "static"]
+}
