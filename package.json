@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "express": "^4.12.2",
+    "jsdoc": "^3.3.0-beta3",
     "request": "^2.53.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node mysteria.js"
+    "start": "node mysteria.js",
+    "postinstall": "jsdoc mysteria.js -d docs"
   },
   "engine": "node >= 0.10.0"
 }

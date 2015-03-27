@@ -1,3 +1,4 @@
+/** @module mysteria */
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -15,6 +16,11 @@ function normalizeUrl(url) {
     return url;
 }
 
+/**
+ * @description Sends default result
+ *
+ * @param {Object} res - The response object
+ */
 function sendDefault(res) {
     res.send({
 			result: 'NO_RESULT'
@@ -60,5 +66,23 @@ app.get('/witness', function (req, res) {
     sendDefault(res);
 });
 
+/**
+ * @name API_CreateGame
+ * @function
+ * @description Creates a game (POST)
+ * @param {integer} players - Number of players.
+ * @returns {string} gameId - Game Id.
+ * @example
+ * // returns a gameId
+ * POST /game HTTP/1.1
+ * From: reverence23@gmail.com
+ * User-Agent: HTTPTool/1.1
+ * Content-Type: application/x-www-form-urlencoded
+ * Content-Length: 32
+ * players=5
+ */
+app.post('/game', function (req, res) {
+
+});
 
 app.listen(process.argv[2] || 9000);
