@@ -2,7 +2,7 @@ MYSTERIA REST API:
 
 - create a game (POST: #players) -> reply with id
 
-- get available cases (GET: #gameid) -> reply with array of cases
+- get available cases (GET) -> reply with array of cases
 
 - choose case for a game (POST: #gameID, #caseID) -> reply 200
 

@@ -1,4 +1,5 @@
 /** @module mysteria */
+
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -23,12 +24,12 @@ function normalizeUrl(url) {
  */
 function sendDefault(res) {
     res.send({
-			result: 'NO_RESULT'
+        result: 'NO_RESULT'
     });
 }
 
 app.use(express.static(process.argv[3] ||
-				path.join(__dirname, 'public')));
+                path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
   res.sendStatus(404);
@@ -67,8 +68,27 @@ app.get('/witness', function (req, res) {
 });
 
 /**
- * @name API_CreateGame
- * @function
+ * @function API_StartGame
+ * @global
+ * @description Starts a game (POST)
+ * @param {string} gameId - Game Id.
+ * @returns {Player|Array} players - Players participating in the game.
+ * @example
+ * // returns players array json object
+ * POST /game/start HTTP/1.1
+ * From: reverence23@gmail.com
+ * User-Agent: HTTPTool/1.1
+ * Content-Type: application/x-www-form-urlencoded
+ * Content-Length: 32
+ * game=1
+ */
+app.post('/game/start', function (req, res) {
+
+});
+
+/**
+ * @function API_CreateGame
+ * @global
  * @description Creates a game (POST)
  * @param {integer} players - Number of players.
  * @returns {string} gameId - Game Id.
@@ -82,7 +102,40 @@ app.get('/witness', function (req, res) {
  * players=5
  */
 app.post('/game', function (req, res) {
+    sendDefault(res);
+});
 
+/**
+ * @function API_GetCases
+ * @global
+ * @description Get available cases (GET)
+ * @returns {Case|Array} cases - Candidate cases for a game.
+ * @example
+ * // returns Case array json object
+ * GET /cases HTTP/1.1
+ */
+app.get('/cases', function (req, res) {
+    sendDefault(res);
+});
+
+/**
+ * @function API_ChooseCase
+ * @global
+ * @description Chooses a case for a game (POST)
+ * @param {string} caseId - Id of the case to choose.
+ * @param {string} gameId - Id of the game.
+ * @returns {integer} HTTP_Status_Code - 200.
+ * @example
+ * // returns a gameId
+ * POST /case HTTP/1.1
+ * From: reverence23@gmail.com
+ * User-Agent: HTTPTool/1.1
+ * Content-Type: application/x-www-form-urlencoded
+ * Content-Length: 32
+ * case=2&game=1
+ */
+app.post('/case', function (req, res) {
+    res.sendStatus(200);
 });
 
 app.listen(process.argv[2] || 9000);
