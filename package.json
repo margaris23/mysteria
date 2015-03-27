@@ -15,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node mysteria.js",
-    "postinstall": "jsdoc mysteria.js -d docs"
+    "postinstall": "jsdoc -c conf.json"
   },
   "engine": "node >= 0.10.0"
 }

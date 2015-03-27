@@ -72,7 +72,7 @@ app.get('/witness', function (req, res) {
  * @global
  * @description Starts a game (POST)
  * @param {string} gameId - Game Id.
- * @returns {Player|Array} players - Players participating in the game.
+ * @returns {Object[]} players - Players participating in the game.
  * @example
  * // returns players array json object
  * POST /game/start HTTP/1.1
@@ -109,7 +109,7 @@ app.post('/game', function (req, res) {
  * @function API_GetCases
  * @global
  * @description Get available cases (GET)
- * @returns {Case|Array} cases - Candidate cases for a game.
+ * @returns {Object[]} cases - Candidate cases for a game.
  * @example
  * // returns Case array json object
  * GET /cases HTTP/1.1
