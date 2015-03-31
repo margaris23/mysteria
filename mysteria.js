@@ -28,8 +28,10 @@ function sendDefault(res) {
     });
 }
 
+// Configure static dirs
 app.use(express.static(process.argv[3] ||
                 path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 app.get('/', function (req, res) {
   res.sendStatus(404);
@@ -83,7 +85,7 @@ app.get('/witness', function (req, res) {
  * game=1
  */
 app.post('/game/start', function (req, res) {
-
+    sendDefault(res);
 });
 
 /**
@@ -138,4 +140,4 @@ app.post('/case', function (req, res) {
     res.sendStatus(200);
 });
 
-app.listen(process.argv[2] || 9000);
+app.listen(process.env.PORT || process.argv[2] || 9000);
